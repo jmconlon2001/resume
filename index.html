@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0A0E16" />
+<script>
+  /* Apply saved theme before first paint to avoid a flash. Default: dark. */
+  (function(){
+    var t;
+    try { t = localStorage.getItem('theme'); } catch(e){}
+    document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+  })();
+</script>
 <title>Jacob Conlon — Technology Leader</title>
 <meta name="description" content="Jacob Conlon — IT Director. Software architecture, cloud modernization, and AI enablement. The leader executives trust to bridge IT and Finance." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,14 +24,35 @@
     --text:#EAEEF4; --muted:#92A0B4; --muted-2:#5E6C80;
     --gold:#E9B949; --gold-soft:rgba(233,185,73,.13); --gold-line:rgba(233,185,73,.4);
     --steel:#5B9DF0; --steel-soft:rgba(91,157,240,.12);
+    --on-gold:#0A0E16; /* text/icon color that sits on a gold fill */
+    --glow:rgba(233,185,73,.10);
+    --nav-bg:rgba(10,14,22,.72);
     --display:'Space Grotesk',sans-serif; --body:'IBM Plex Sans',sans-serif; --mono:'IBM Plex Mono',monospace;
     --maxw:1080px;
+    color-scheme:dark;
+  }
+
+  /* ---------- LIGHT THEME ----------
+     Not a flat invert: a warm ledger-paper palette that keeps the
+     "balance sheet" feel. Gold deepens to an antique bronze so it stays
+     legible as text on a light ground; gold fills carry white text. */
+  :root[data-theme="light"]{
+    --ink:#F7F4EC; --ink-2:#FFFFFF; --ink-3:#F1EDE2;
+    --line:rgba(24,32,46,.12); --line-2:rgba(24,32,46,.19);
+    --text:#181D26; --muted:#55616F; --muted-2:#6C7682;
+    --gold:#8E6410; --gold-soft:rgba(142,100,16,.11); --gold-line:rgba(142,100,16,.40);
+    --steel:#2F6CC0; --steel-soft:rgba(47,108,192,.10);
+    --on-gold:#FFFFFF;
+    --glow:rgba(142,100,16,.12);
+    --nav-bg:rgba(247,244,236,.82);
+    color-scheme:light;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     background:var(--ink); color:var(--text); font-family:var(--body);
     line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    transition:background-color .45s ease, color .45s ease;
   }
   /* faint ledger / architecture grid */
   body::before{
@@ -37,7 +67,7 @@
   body::after{
     content:""; position:fixed; top:-30%; left:50%; transform:translateX(-50%);
     width:900px; height:600px; z-index:0; pointer-events:none;
-    background:radial-gradient(circle, rgba(233,185,73,.10), transparent 65%);
+    background:radial-gradient(circle, var(--glow), transparent 65%);
     filter:blur(20px);
   }
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px; position:relative; z-index:1}
@@ -53,7 +83,8 @@
   /* ---------- NAV ---------- */
   nav{
     position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
-    background:rgba(10,14,22,.72); border-bottom:1px solid var(--line);
+    background:var(--nav-bg); border-bottom:1px solid var(--line);
+    transition:background-color .45s ease, border-color .45s ease;
   }
   .nav-in{max-width:var(--maxw); margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between}
   .brand{display:flex; align-items:center; gap:12px; font-family:var(--display); font-weight:600}
@@ -66,10 +97,28 @@
   .nav-links a{font-family:var(--mono); font-size:.78rem; letter-spacing:.04em; color:var(--muted); transition:color .2s}
   .nav-links a:hover{color:var(--text)}
   .nav-cta{
-    font-family:var(--mono); font-size:.78rem; letter-spacing:.03em; color:var(--ink) !important;
-    background:var(--gold); padding:8px 14px; border-radius:8px; font-weight:600; transition:transform .15s, box-shadow .2s;
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.03em; color:var(--on-gold) !important;
+    background:var(--gold); padding:8px 14px; border-radius:8px; font-weight:600; transition:transform .15s, box-shadow .2s, background-color .45s ease;
   }
   .nav-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(233,185,73,.25)}
+  .nav-right{display:flex; align-items:center; gap:18px}
+
+  /* ---------- THEME TOGGLE ---------- */
+  .theme-toggle{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:9px; flex:none;
+    border:1px solid var(--line-2); background:transparent; color:var(--muted);
+    cursor:pointer; -webkit-tap-highlight-color:transparent;
+    transition:color .2s, border-color .2s, background-color .2s, transform .15s;
+  }
+  .theme-toggle:hover{color:var(--text); border-color:var(--gold-line); background:var(--gold-soft)}
+  .theme-toggle:active{transform:scale(.94)}
+  .theme-toggle svg{width:18px; height:18px; display:block}
+  .theme-toggle .i-moon{display:none}
+  .theme-toggle .i-sun{display:block}
+  :root[data-theme="light"] .theme-toggle .i-sun{display:none}
+  :root[data-theme="light"] .theme-toggle .i-moon{display:block}
+
   .nav-toggle{display:none}
   @media(max-width:780px){
     .nav-links{display:none}
@@ -180,11 +229,11 @@
 
   /* ---------- CAPABILITIES ---------- */
   .cap-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
-  .cap{border:1px solid var(--line); border-radius:14px; padding:24px; background:var(--ink-2); transition:border-color .25s, transform .25s}
+  .cap{border:1px solid var(--line); border-radius:14px; padding:24px; background:var(--ink-2); transition:border-color .25s, transform .25s, background-color .45s ease}
   .cap:hover{border-color:var(--gold-line); transform:translateY(-3px)}
   .cap h3{font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:16px}
   .chips{display:flex; flex-wrap:wrap; gap:8px}
-  .chip{font-family:var(--mono); font-size:.78rem; color:var(--text); border:1px solid var(--line-2); border-radius:7px; padding:6px 10px; background:var(--ink-3)}
+  .chip{font-family:var(--mono); font-size:.78rem; color:var(--text); border:1px solid var(--line-2); border-radius:7px; padding:6px 10px; background:var(--ink-3); transition:background-color .45s ease, border-color .45s ease, color .45s ease}
   .chip.tbd{color:var(--gold); border:1px dashed var(--gold-line); background:var(--gold-soft)}
   @media(max-width:680px){ .cap-grid{grid-template-columns:1fr} }
 
@@ -204,7 +253,7 @@
     font-family:var(--mono); font-size:.85rem; letter-spacing:.02em; padding:13px 22px; border-radius:10px;
     transition:transform .15s, box-shadow .2s, border-color .2s;
   }
-  .btn-gold{background:var(--gold); color:var(--ink); font-weight:600}
+  .btn-gold{background:var(--gold); color:var(--on-gold); font-weight:600; transition:transform .15s, box-shadow .2s, background-color .45s ease}
   .btn-gold:hover{transform:translateY(-2px); box-shadow:0 8px 26px rgba(233,185,73,.28)}
   .btn-ghost{border:1px solid var(--line-2); color:var(--text)}
   .btn-ghost:hover{border-color:var(--gold-line); color:var(--gold)}
@@ -226,12 +275,23 @@
 <nav>
   <div class="nav-in">
     <a class="brand" href="#top"><span class="mono-badge">JC</span><span>Jacob Conlon</span></a>
-    <div class="nav-links">
-      <a href="#profile">Profile</a>
-      <a href="#impact">Impact</a>
-      <a href="#trajectory">Trajectory</a>
-      <a href="#capabilities">Capabilities</a>
-      <a class="nav-cta" href="mailto:Jacob@Conlon.us">Get in touch</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#profile">Profile</a>
+        <a href="#impact">Impact</a>
+        <a href="#trajectory">Trajectory</a>
+        <a href="#capabilities">Capabilities</a>
+        <a class="nav-cta" href="mailto:Jacob@Conlon.us">Get in touch</a>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Toggle light / dark">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.9a8.4 8.4 0 1 1-9.9-9.8 6.6 6.6 0 0 0 9.9 9.8z"/>
+        </svg>
+      </button>
     </div>
   </div>
 </nav>
@@ -322,6 +382,36 @@
 <footer>
   <div class="wrap"><p>© <span id="yr"></span> Jacob Conlon · Self-hosted on conlon.us · Built to be read top to bottom.</p></div>
 </footer>
+
+<script>
+/* ---------- THEME TOGGLE ---------- */
+(function(){
+  var root = document.documentElement;
+  var btn = document.querySelector('.theme-toggle');
+  var meta = document.querySelector('meta[name="theme-color"]');
+  var BG = { dark:'#0A0E16', light:'#F7F4EC' };
+
+  function apply(theme){
+    root.setAttribute('data-theme', theme);
+    var light = theme === 'light';
+    if(meta) meta.setAttribute('content', light ? BG.light : BG.dark);
+    if(btn){
+      btn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+      btn.setAttribute('aria-pressed', String(light));
+    }
+  }
+  // sync ARIA with whatever the pre-paint script set
+  apply(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+
+  if(btn){
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+    });
+  }
+})();
+</script>
 
 <script>
 /* =========================================================================
