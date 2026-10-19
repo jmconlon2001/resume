@@ -1,0 +1,78 @@
+JACOB CONLON
+Cherry Hill, NJ 08003
+Phone: 856-996-5627
+Email: Jacob@Conlon.us
+LinkedIn: https://www.linkedin.com/in/jacobconlon
+Website: https://www.conlon.us
+GitHub: https://github.com/jmconlon2001
+
+IT Director | Software Architecture, Cloud Modernization and AI Enablement
+
+SUMMARY
+Technology leader with 19+ years building and modernizing enterprise software in financial services. Directs a 15-person team of architects, engineers, and QA, reporting to executive leadership. Combines deep technical expertise in .NET Core, Angular, cloud, and AI with forensic accounting fluency. Trusted to bridge IT and Finance on legacy migrations, GAAP-to-IFRS conversions, and enterprise AI adoption. Migrated a $2.2B lease portfolio (90,000 accounts, 290,000 active agreements) off a 25-year-old legacy platform during the global pandemic. IT owner for SOX and J-SOX controls.
+
+WORK EXPERIENCE
+
+IT Director, Corporate IT
+Canon Financial Services, Inc., Mount Laurel, NJ
+12/2019 - Present
+- Own IT application strategy, architecture, delivery, and platform support; lead a 15-person team of architects, engineers, and QA and report to executive leadership.
+- Modeled and migrated a 25-year-old legacy lease accounting system during the global pandemic, a modernization peer institutions attempted and failed to complete. The platform carries a $2.2B lease portfolio across 90,000 accounts and 290,000 active agreements.
+- Engineered a novel lease-syndication solution during a GAAP-to-IFRS accounting transition, eliminating a projected $1M project cost.
+- Modernized the legacy green-screen leasing platform to a web and API based system; multi-year program delivered on time and on budget.
+- As AI-assisted development champion, built ProcTuner, an AI agent that refactors underperforming SQL stored procedures, then validates data parity and benchmarks results before promoting. Some procedures gained more than 70% in performance.
+- Driving cloud modernization and right-sizing: containerizing .NET Core services, migrating from Windows to Linux hosts, and adopting serverless deployments.
+- Stood up application monitoring and observability that surfaces production issues in real time.
+- Founded an IT Architecture Committee and instituted code-review standards, reducing defects reaching QA and strengthening security and performance.
+- IT owner for SOX and J-SOX controls, embedding compliance into the secure SDLC.
+
+Senior IT Manager, Applications and Systems
+Canon Financial Services, Inc., Mount Laurel, NJ
+12/2016 - 12/2019
+- Provided technical leadership for a team of 15 developers, architects, and QA.
+- Launched a new short-term inventory-financing line of business on an external SaaS platform, increasing revenue and displacing competitor volume.
+- Delivered a lease setup and booking application that cut manual data entry by more than 60%, lowered cost-to-serve, and created a framework for dealer data-feed integration.
+- Replaced paper interdepartmental monetary requests with an electronic approval workflow using a dynamic authority matrix and automated posting to backend leasing systems.
+- Built a Unified Desktop web application consolidating multiple internal and third-party systems, improving usability and reducing new-hire onboarding time.
+- Implemented Salesforce Service Console integrated with telephony and backend data for call-center visibility and control.
+
+Application Development Manager
+Canon Financial Services, Inc., Mount Laurel, NJ
+12/2012 - 12/2016
+- Mentored and led an 8-member development team in close partnership with Project Management.
+- Built a risk-based credit decision engine that raised auto-approval rates from 8% to more than 50%.
+- Delivered a customer self-service portal (payments, account servicing) integrated with the core lease-settlement system, raising payment-application rates and reducing inbound call volume.
+- Shipped a multi-device dealer portal that increased credit-application volume from the independent dealer channel.
+- Led gap analysis and systems integration enabling a successful merger with an acquired financial-services company.
+- Introduced TDD and BDD practices (NUnit, SpecFlow) and Selenium automated UI testing.
+
+Team Lead / Senior Engineer / Engineer
+Canon Financial Services, Inc., Mount Laurel, NJ
+12/2007 - 12/2012
+- Built a reusable .NET framework (Oracle and SQL Server data access, authentication, encryption, messaging, EDI, logging) adopted as the standard for all new applications.
+- Developed prototype solutions with customers to accelerate requirements definition and development.
+
+Senior Developer / Information Systems
+Vision Appraisal Technology, Northboro, MA
+09/2001 - 12/2007
+- Owned full-lifecycle design and development of enterprise, database-driven applications for the Computer-Assisted Mass Appraisal (CAMA) industry.
+- Served as technical project manager and lead developer for the New York City, Washington D.C., and Boston deployments.
+
+EDUCATION
+Master of Science, Information Systems
+University of Phoenix
+2012
+
+Bachelor of Arts, History
+College of the Holy Cross
+2001
+
+CERTIFICATIONS
+Certified Lease and Finance Professional (CLFP), CLFP Foundation, 2018
+Certified ScrumMaster (CSM), Scrum Alliance, 2010
+Six Sigma Green Belt, Villanova University, 2010
+Microsoft Certified Application Developer (MCAD), C#, Microsoft, 2006
+Canon Leadership Institute, Canon U.S.A., 2017
+
+SKILLS
+IT Leadership, Software Architecture, Enterprise Architecture, Solution Architecture, Cloud Migration, Legacy Modernization, Team Leadership, Vendor Management, Budgeting, C#, .NET Core, ASP.NET Web API, Entity Framework, LINQ, Angular, JavaScript, jQuery, HTML5, REST APIs, SOAP, WCF, Microservices, Microsoft SQL Server, Oracle Database, T-SQL, PL/SQL, ETL, Performance Tuning, Data Modeling, Amazon Web Services (AWS), Google Cloud Platform (GCP), Vertex AI, Microsoft Azure, Azure OpenAI, Docker, Azure DevOps, CI/CD, Linux, F5 Load Balancing, Artificial Intelligence (AI), Large Language Models (LLM), AI Agents, GitHub Copilot, Claude Code, Salesforce, EDI, SaaS Integration, Agile, Scrum, Test-Driven Development (TDD), Behavior-Driven Development (BDD), Selenium, Code Review, SOX Compliance, J-SOX Compliance, Secure SDLC, Encryption, Forensic Accounting, IFRS, GAAP, Lease Accounting, Financial Services
